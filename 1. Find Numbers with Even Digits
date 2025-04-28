@@ -1,0 +1,62 @@
+1. Find Numbers with Even Digits
+
+Problem Statement:
+
+In a distant kingdom, a wise king has a chest full of magical numbers. He decides to reward the
+
+most observant mathematician in the land. Your task is to analyze a list of these numbers and
+
+identify which ones contain an even number of digits. The king believes that only numbers with
+
+an even number of digits hold the key to unlock the hidden treasures of the kingdom. Can you
+
+help identify these numbers for the king?
+
+Constraints:
+
+● The array length 1≤n≤10^4
+
+● Each number in the array is a positive integer 1≤num≤10^9
+
+Sample Input:
+
+123,4567,89,1001,22
+
+Sample Output:
+
+4567, 89, 1001, 22
+
+Explanation:
+
+Numbers like 123 have 3 digits, which is odd, so they are excluded. However, 89 and 22 have 2
+
+digits, which is even, so they are included.
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		int a[]=new int[5];
+		
+		for(int i=0;i<5;i++){
+			a[i]=scn.nextInt();
+		}
+		for(int i=0;i<a.length;i++){
+		   int cnt=0; 	
+		   int n=a[i];
+		   while(n>0){
+		   	int r=n%10;
+		   	cnt++;
+		   	n=n/10;	
+		   }
+		   if(cnt%2==0){
+		          System.out.print(a[i]);	
+		   }
+	   }
+	}
+}
