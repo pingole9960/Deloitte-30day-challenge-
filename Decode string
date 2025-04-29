@@ -1,0 +1,38 @@
+import java.util.*;
+
+class Solution {
+    public String decodeString(String s) {
+        int n = s.length();
+        Stack<String> strStack = new Stack<>();
+        Stack<Integer> numStack = new Stack<>();
+        String currStr = "";
+        String currNum = "";
+
+        for (char ch : s.toCharArray()) {
+            if (ch == '[') {
+                if (currNum.isEmpty()) {
+                    numStack.push(1); // Default to 1 if no number before '['
+                } else {
+                    numStack.push(Integer.parseInt(currNum));
+                }
+                strStack.push(currStr);
+                currStr = "";
+                currNum = "";
+            } else if (ch == ']') {
+                int repeat = numStack.pop();
+                String prevStr = strStack.pop();
+                StringBuilder temp = new StringBuilder();
+                for (int i = 0; i < repeat; i++) {
+                    temp.append(currStr);
+                }
+                currStr = prevStr + temp;
+            } else if (Character.isDigit(ch)) {
+                currNum += ch;
+            } else {
+                currStr += ch;
+            }
+        }
+
+        return currStr;
+    }
+}
