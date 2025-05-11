@@ -1,0 +1,22 @@
+public class Main {
+	public static void main(String[] args) {
+		int n=3;
+		int size=2*n-1;
+		int mat[][]=new int[size][size];
+		for(int layer=0;layer<n;layer++){
+			int value=n-layer;
+			for(int i=layer;i<size-layer;i++){
+				for(int j=layer;j<size-layer;j++){
+					mat[i][j]=value;
+				}
+			}
+		}
+		for(int i=0;i<size;i++){
+				for(int j=0;j<size;j++){
+					System.out.print(mat[i][j]+" ");
+				}
+				System.out.println();
+		}
+			
+	}
+}
