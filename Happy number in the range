@@ -1,0 +1,29 @@
+public class Main {
+	public static void main(String[] args) {
+		int s=0;
+		for(int i=1;i<20;i++){
+		int slow=i;
+		int fast=i;
+		do{
+			slow=getsum(slow);
+			fast=getsum(getsum(fast));
+		}while(fast!=slow);
+		if(slow==1)
+					System.out.println(i);
+		}
+	}
+			
+	
+		static int getsum(int i){
+				int sum=0;
+				while(i>0){
+					int r=i%10;
+					sum+=r*r;
+					i=i/10;
+		      }
+		      return sum;
+		}
+			
+				
+		
+}
