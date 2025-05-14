@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String A = sc.next();  // e.g., "cd"
+        String B = sc.next();  // e.g., "de"
+
+        boolean found = false;
+
+        for (int len = B.length(); len >= 1; len--) {
+            for (int i = 0; i <= B.length() - len; i++) {
+                String sub = B.substring(i, i + len);
+                if (A.contains(sub)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) break;
+        }
+
+        System.out.println(found ? "1" : "-1");
+    }
+}
